@@ -1,10 +1,10 @@
-# A Ayush Kumar's 3D Portfolio
+# Ayush Kumar's 3D Portfolio
 
 <div align="center">
 
 <br />
     <a href="https://nikhil-maguwala-dark-3d.netlify.app/" target="_blank">
-      <img src="https://raw.githubusercontent.com/nikhilmaguwala-fau/nikhil-maguwala-dark-3d/main/src/assets/photo.png" alt="Project Banner">
+      <img src="https://github.com/ayushkumar32539/Portfolio/blob/master/src/assets/photo.png" alt="Project Banner">
     </a>
   <br />
 
