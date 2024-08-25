@@ -8,13 +8,53 @@ const Robot = ({ isMobile }) => {
   const robot = useGLTF("./Robot/scene.gltf");
   const { actions } = useAnimations(robot.animations, robot.scene);
 
-  useEffect(() => {
-    // Play the first animation (you can specify a particular animation if needed)
-    const action = actions[Object.keys(actions)[0]];
-    action.play();
+  
 
-    return () => action.stop();
+  useEffect(() => {
+    console.log("Robot model loaded:", robot);
+    console.log("Animations:", robot.animations);
+    console.log("Actions:", actions);
+
+    if (robot.scene) {
+      robot.scene.traverse((child) => {
+        if (child.isMesh && child.geometry) {
+          console.log("Mesh found:", child.name);
+          const position = child.geometry.attributes.position;
+          if (!position) {
+            console.error("No position attribute found for", child.name);
+            return;
+          }
+          for (let i = 0; i < position.count; i++) {
+            const x = position.getX(i);
+            const y = position.getY(i);
+            const z = position.getZ(i);
+            if (isNaN(x) || isNaN(y) || isNaN(z)) {
+              console.error('NaN found in position attribute of', child.name, 'at index', i);
+              // Attempt to fix NaN values
+              position.setXYZ(i, isNaN(x) ? 0 : x, isNaN(y) ? 0 : y, isNaN(z) ? 0 : z);
+            }
+          }
+          child.geometry.computeBoundingSphere();
+          child.geometry.computeBoundingBox();
+        }
+      });
+    } else {
+      console.error("No scene found in the loaded model");
+    }
+  }, [robot, actions]);
+
+  useEffect(() => {
+    const actionKeys = Object.keys(actions);
+    if (actionKeys.length > 0) {
+      const action = actions[actionKeys[0]];
+      console.log("Playing animation:", actionKeys[0]);
+      action.play();
+      return () => action.stop();
+    } else {
+      console.warn("No animations found");
+    }
   }, [actions]);
+
 
   return (
     <mesh>
@@ -31,7 +71,7 @@ const Robot = ({ isMobile }) => {
       <primitive
         object={robot.scene}
         scale={isMobile ? 0.5 : 0.75}
-        position={isMobile ? [0, 3, -0] : [0, -2.05, 0]}
+        position={isMobile ? [0, -1, -0] : [0, -2.05, 0]}
         rotation={[0, 1.4, 0]}
       />
     </mesh>
@@ -55,6 +95,8 @@ const RobotCanvas = () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
+
+  
 
   return (
     <Canvas

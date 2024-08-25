@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 
 import { styles } from "../style.js";
 import RobotCanvas from "./canvas/Robot.jsx";
+import ErrorBoundary from "./ErrorBoundary.jsx";
 
 const Hero = () => {
+  
   return (
     <section className={`relative w-full h-screen mx-auto`}>
       <div
@@ -24,8 +26,9 @@ const Hero = () => {
           </p>
         </div>
       </div>
-
+<ErrorBoundary fallback={<div>Loading 3D model...</div>}>
       <RobotCanvas />
+</ErrorBoundary>
 
       <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
         <a href='#about'>
