@@ -12,10 +12,7 @@ import {
   nodejs,
   mongodb,
   docker,
-  carrent,
-  jobit,
-  tripguide,
-  threejs, gps, angular, flask, python, chatgpt, spplstm, geeksacademy, icr,
+  threejs, chatgpt
 } from "../assets";
 import nuren_ai from "../assets/company/nuren_ai.jpeg"
 import agbiz from "../assets/company/agbiz.jpeg"

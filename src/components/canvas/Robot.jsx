@@ -31,8 +31,8 @@ const Robot = ({ isMobile }) => {
       <primitive
         object={robot.scene}
         scale={isMobile ? 0.5 : 0.75}
-        position={isMobile ? [0, 0, -0] : [0, -2.05, 0]}
-        rotation={[-0.1, -0.1, -0.1]}
+        position={isMobile ? [0, 3, -0] : [0, -2.05, 0]}
+        rotation={[0, 1.4, 0]}
       />
     </mesh>
   );

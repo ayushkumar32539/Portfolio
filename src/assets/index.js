@@ -28,17 +28,8 @@ import jenkins from "./tech/jenkins.svg";
 import python from "./tech/python.svg";
 import flask from "./tech/flask.svg";
 
-import geeks from "./company/geeks.png";
-import abaut from "./company/abaut.png";
-import lanet from "./company/lanet.png";
-import gps from "./company/gps.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
-import spplstm from "./spplstm.png";
-import geeksacademy from "./geeksacademy.png";
-import icr from "./icr.png";
+
 
 export {
   logo,
@@ -62,20 +53,9 @@ export {
   tailwind,
   typescript,
   threejs,
-  carrent,
-  jobit,
-  tripguide,
-    abaut,
-    lanet,
-    gps,
-    geeks,
     angular,
     chatgpt,
     jenkins,
     python,
     flask,
-    spplstm,
-  geeksacademy,
-    icr,
-  nlogo
 };

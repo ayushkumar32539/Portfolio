@@ -1,4 +1,4 @@
-# A Nikhil Maguwala 3D Portfolio
+# A Ayush Kumar's 3D Portfolio
 
 <div align="center">
 
